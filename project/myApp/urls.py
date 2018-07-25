@@ -6,4 +6,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.Index),
+	url(r'^(\d+)/$',views.detail),
 ]
