@@ -12,4 +12,5 @@ urlpatterns = [
 	url(r'^grades/$',views.grades),
 	#路由至students
 	url(r'^students/$',views.students),
+	url(r'^grades/(\d+)/$',views.gradesStudents),
 ]
