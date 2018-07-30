@@ -13,4 +13,5 @@ urlpatterns = [
 	#路由至students
 	url(r'^students/$',views.students),
 	url(r'^grades/(\d+)/$',views.gradesStudents),
+	url(r'^addstudents/$',views.addStudents),
 ]

@@ -26,3 +26,10 @@ def gradesStudents(request,num):
 	studentsList = grade.students_set.all()
 
 	return render(request,'myApp/students.html',{'students':studentsList})
+
+def addStudents(request):
+	grade = Grades.objects.get(id=2)
+	creatStu = Students.creatStudent('zhangcs',True,25,'wojiaozhangcs',grade)
+	creatStu.save()
+
+	return HttpResponse('dsfsafasf')
