@@ -6,8 +6,21 @@ from django.db import models
 class studentManger(models.Manager):
 
     def get_queryset(self):
-
+        #可以使用N个filter(),可以链式调用,返回符合条件的数据
+        #两种写法filter(键=值).filter(键=值)  filter(键=值,键=值)
         return super(studentManger,self).get_queryset().filter(isDelete=False)
+    def creadStudents(self,sname,sgender,sage,scontent,sgrade,isDelete=False):
+        #下面的是通用的版本
+        #stu = self.model()
+        #创建students对象只能用于添加学生
+        stu = Students()
+        stu.sname = sname
+        stu.sgender = sgender
+        stu.sage = sage
+        stu.scontend = scontent
+        stu.sgrade = sgrade
+        return  stu
+
 
 
 
@@ -33,7 +46,7 @@ class Students(models.Model):
     # stu = models.Manager()
     #
     # # 使用自定义的管理器
-    # stuManager = studentManger()
+    #stuManager = studentManger()
 
     sname    = models.CharField(max_length=20)
     sgender  = models.BooleanField(default=True)

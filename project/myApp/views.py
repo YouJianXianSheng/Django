@@ -33,3 +33,20 @@ def addStudents(request):
 	creatStu.save()
 
 	return HttpResponse('dsfsafasf')
+def addStudents1(request):
+	grade = Grades.objects.get(id=2)
+	creatStu = Students.stuManager.creadStudents('zhangcs',True,25,'wojiaozhangcs',grade)
+	creatStu.save()
+
+	return HttpResponse('dsfsafasf')
+
+#查询前N条数据
+def students1(request):
+	studentsList = Students.objects.all()[0:3]
+
+	return render(request, "myApp/students.html", {"students": studentsList})
+#分页显示学生
+def stupage(request,page):
+	page = int(page)
+	studentsList = Students.objects.all()[(page-1)*2:2*page]
+	return render(request, "myApp/students.html", {"students": studentsList})

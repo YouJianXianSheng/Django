@@ -14,4 +14,7 @@ urlpatterns = [
 	url(r'^students/$',views.students),
 	url(r'^grades/(\d+)/$',views.gradesStudents),
 	url(r'^addstudents/$',views.addStudents),
+    url(r'^students1/$',views.students1),
+    #分页显示学生
+    url(r'^stupage/(\d+)/$',views.stupage)
 ]
